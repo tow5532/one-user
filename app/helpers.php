@@ -348,9 +348,10 @@ if(! function_exists('rightAboveRecommendEdit')){
 if(! function_exists('sendTelegramMsgDeposit')){
     function sendTelegramMsgDeposit($id, $amount)
     {
-        /*$users      = \App\User::where('id', $id)->first();
+       /* $users      = \App\User::where('id', $id)->first();
         //$telegrams  = \App\User::whereNotNull('telegram_id')->get();
-        $telegrams = array('1204462147', '1676503264');
+        //$telegrams = array('1204462147', '1676503264');
+        $telegrams = array('614548590');
 
         foreach ($telegrams as $telegram)
         {

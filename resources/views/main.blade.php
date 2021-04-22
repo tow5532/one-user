@@ -266,7 +266,7 @@
                     <strong class="text-custom-black">{{trans('main.layer3.content')}} <br> {{trans('main.layer3.content2')}}</strong>
                     {{--<a class="button  black large" href="{{route('game.download.android')}}" type="application/vnd.android.package-archive">{{trans('main.layer3.button.0')}}</a>--}}
                     <a class="button  black large" href="{{route('game.slot')}}">{{trans('main.layer3.button.1')}}</a>
-
+                    <a class="button  black large" href="{{route('game.slot')}}">{{trans('main.layer3.button2.1')}}</a>
                 </div>
             </div>
         </div>
@@ -305,7 +305,29 @@
         </div>
     </section>
 
-
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title" id="exampleModalLabel">
+                        <div class="section-title mb-10">
+                            <h6>OneGame</h6>
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body no-padding text-center">
+                    <img src="/images/pop/modal_img_20210401.jpg" width="450" height="500">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="no_tanks">하루동안그만보기</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <style>
         @media (max-width: 479px){
@@ -329,9 +351,19 @@
 @stop
 
 @section('script')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
     <script>
         function startGame(){
             document.location.href = "{{ route('game.slot') }}";
         }
+        $(document).ready(function() {
+            if ($.cookie("no_thanks_20210401") == null) {
+                $('#exampleModal').modal();
+            }
+            $("#no_tanks").click(function() {
+                $.cookie('no_thanks_20210401', 'true', { expires: 1, path: '/' });
+                $('#exampleModal').modal('hide');
+            });
+        });
     </script>
 @stop

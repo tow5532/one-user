@@ -60,7 +60,7 @@
                                         <a href="{{ route('event') }}">{{ trans('template.menu.event') }} </a>
                                     </li>
                                     <li class="{{ (\Request::route()->getName() === 'game') ? 'active' : '' }}">
-                                        <a href="{{  route('game') }}">{{ trans('template.menu.asian')  }} </a>
+                                        <a href="{{  route('game.asian') }}">{{ trans('template.menu.asian')  }} </a>
                                     </li>
                                     <li class="{{ (\Request::route()->getName() === 'game.slot') ? 'active' : '' }}">
                                         <a href="{{ route('game.slot') }}">{{ trans('template.menu.monaco') }} </a>

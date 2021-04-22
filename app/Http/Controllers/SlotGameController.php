@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Jenssegers\Agent\Agent;
 
 class SlotGameController extends Controller
 {
@@ -56,8 +57,17 @@ class SlotGameController extends Controller
             'game_auth_update' => Carbon::now(),
         ]);
 
-        $link_url = 'psgs://psgsslot/A100' . $session_id;
+        $agent = new Agent();
 
-        return response()->json(array('success' => true, 'certification_link' => $link_url));
+        if ($agent->isMobile() && $agent->isAndroidOS()){
+            $isMobile = true;
+            $link_url = 'intent://luckymonaco?arg=A100'. $session_id .'#Intent;scheme=superfts;package=com.superfts.luckymonaco;end';
+        } else {
+            $isMobile = false;
+            $link_url = 'psgs://psgsslot/A100' . $session_id;
+        }
+
+
+        return response()->json(array('success' => true, 'certification_link' => $link_url, 'isMobile' => $isMobile));
     }
 }

@@ -16,26 +16,11 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="action-box action-box-border">
                         <div class="action-box-text">
-                            <h4>[PC 버전] 최초 1회 다운로드 및 설치해야 정상 플레이가 가능합니다.</h4>
+                            <h4>처음으로 슬롯을 플레이하기 위해서는 게임을 다운받아서 설치해야 합니다.</h4>
                         </div>
                         <div class="action-box-button">
                             <a class="button" href="{{ route('game.download.slot') }}">
-                                <span>럭키모나코 PC 다운로드</span>
-                                <i class="fa fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row m-4">
-                <div class="col-lg-12 col-md-12">
-                    <div class="action-box action-box-border">
-                        <div class="action-box-text">
-                            <h4>[모바일 버전] 모바일은 안드로이드 휴대폰만 플레이가 가능합니다.</h4>
-                        </div>
-                        <div class="action-box-button">
-                            <a class="button" href="https://d3ht1bi8zfbola.cloudfront.net/LuckyMonaco/LuckyMonaco.apk">
-                                <span>럭키모나코 Android 다운로드</span>
+                                <span>럭키모나코 게임 다운로드</span>
                                 <i class="fa fa-download"></i>
                             </a>
                         </div>
@@ -281,52 +266,7 @@
         var isAjaxRun = false;
 
         function startGame(){
-            alert('게임이 곧 실행 됩니다. 확인을 눌러 주세요.');
-            //더블클릭 방지
-            if(isAjaxRun == true) {
-                return;
-            }
-            //LoadingWithMask();
-
-            $.ajax({
-                headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()},
-                url: "{{ route('game.slot.start') }}" ,
-                type: "POST",
-                //data: $('#sendFrm').serialize(),
-                async : false,
-                dataType : 'json',
-                beforeSend: function(){
-                    //$('#frmSub').attr("disabled", true);
-                    /*$("#ex5").modal({
-                        escapeClose: false,
-                        clickClose: false,
-                        showClose: false,
-                        fadeDuration: 100
-                    });*/
-                },
-                success: function( json ) {
-                    if (json.success == true){
-                        if (json.isMobile == true){
-                            document.location.href = json.certification_link;
-                        } else {
-                            window.open(json.certification_link, '_blank');
-                        }
-                    }
-                    else {
-                        alert('오류입니다. 잠시후에 다시 이용해 주세요.');
-                    }
-                    $('#mask').remove();
-                    isAjaxRun = false;
-                },
-                complete: function(){
-                   // $('#frmSub').attr("disabled", false);
-                },
-                error: function () {
-                    $('#mask').remove();
-                    isAjaxRun = false;
-                    //$.modal.close();
-                }
-            });
+            document.location.href = "{{ route('game.asian.view') }}";
         }
 
         /*$(document).ready(function(){

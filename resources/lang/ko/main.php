@@ -40,7 +40,8 @@ return [
         'title' => '게임 다운로드',
         'content' => '슬롯을 플레이하기 위해서는 먼저 게임을 다운받아 PC에 설치를 해야 합니다.',
         'content2' => '최초 1회만 설치하면, 그 다음부터는 원라인게임 사이트에서 플레이하려는 슬롯 이미지를 클릭하면 곧바로 실행이 됩니다.',
-        'button' => ['Download Android', '슬롯 다운로드']
+        'button' => ['Download PC', '슬롯 PC 다운로드'],
+        'button2' => ['Download Android', '슬롯 모바일 다운로드']
     ],
     'layer4'=> [
         'title' => 'We will help you to achieve your goals and to grow your money.',

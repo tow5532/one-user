@@ -17,7 +17,7 @@ class TelegramBotController extends Controller
         $admin_telegram2 = User::where('username', 'sunmaster')->first();
 
         $arr = [
-            'deposit_amount' => 5000,
+            'deposit_amount' => 10000,
             'admin_telegram_id' => 614548590,
         ];
 
@@ -29,6 +29,6 @@ class TelegramBotController extends Controller
         $result = $users->notify(new Deposit($arr));
         //$result2 = $users->notify(new Deposit($arr2));
 
-        
+
     }
 }

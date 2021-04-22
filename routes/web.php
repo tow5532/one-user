@@ -102,6 +102,18 @@ Route::get('download/slot', [
 ])->middleware('auth');
 
 
+//아시안 슬롯 게임
+Route::get('/game/asian', [
+    'as' => 'game.asian',
+    'uses' => 'AsianSlotGameController@index',
+]);
+
+Route::get('/game/asian/view', [
+    'as' => 'game.asian.view',
+    'uses' => 'AsianSlotGameController@view',
+]);
+
+
 
 
 Route::get('/home', [
